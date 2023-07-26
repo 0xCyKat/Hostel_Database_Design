@@ -68,25 +68,21 @@ CREATE TABLE enquiry(
     address VARCHAR(100) NOT NULL, 
     email VARCHAR(50) NOT NULL, 
 	year_of_study INT NOT NULL, 
-    hostel_ID INT, 
     room_no INT, 
     
-    FOREIGN KEY (hostel_ID) REFERENCES hostel(hostel_ID), 
     FOREIGN KEY (room_no) REFERENCES room(room_no)
  );  
- 
+  
  -- creation of PAYMENT table 
  
  CREATE TABLE payments(
 	transaction_ID INT PRIMARY KEY, 
     mode_of_payment VARCHAR(20), 
-    hostel_ID INT, 
     student_ID INT, 
     
-    FOREIGN KEY (hostel_ID) REFERENCES hostel(hostel_ID), 
     FOREIGN KEY (student_ID) REFERENCES student(student_ID)
  );
-  
+
   -- creation of VISITORS table  
   
   CREATE TABLE visitors(
@@ -109,6 +105,24 @@ CREATE TABLE enquiry(
     student_ID INT PRIMARY KEY, 
     
     FOREIGN KEY (student_ID) REFERENCES student(student_ID)
+  ); 
+   
+  -- creation of ACCOMODATION table 
+  
+  CREATE TABLE accomodation(
+	room_no INT PRIMARY KEY, 
+    hostel_ID INT, 
+    
+	FOREIGN KEY (room_no) REFERENCES room(room_no), 
+    FOREIGN KEY (hostel_ID) REFERENCES hostel(hostel_ID)
+  ); 
+  
+  CREATE TABLE residence(
+	student_ID INT PRIMARY KEY, 
+    hostel_ID INT, 
+    
+    FOREIGN KEY (student_ID) REFERENCES student(student_ID), 
+    FOREIGN KEY (hostel_ID) REFERENCES hostel(hostel_ID)
   );
   
   
