@@ -19,7 +19,7 @@ Enjoy exploring and contributing to the College Hostel Management Database. Your
 ---
 ### ER Diagram 
 
-![[ER diagram.png]]
+![schema](https://github.com/0xCyKat/Hostel_Database_Design/blob/main/schema.png?raw=true)
 
 ---
 
